@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, Toolbar, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
@@ -21,20 +21,33 @@ import ButtonEntity from '../common/button/button-entity/ButtonEntity';
 import ButtonNotification from '../common/button/button-notification/ButtonNotification';
 import ButtonSignIn from '../common/button/button-sign-in/ButtonSignIn';
 import ButtonProfile from '../common/button/button-profile/ButtonProfile';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+import ButtonIcon from '../common/button/button-icon/ButtonIcon';
 
 const Header: FC<HeaderProps> = ({
-                                   label,
-                                   isShowingMobileBurger,
-                                   onMobileBurgerClick,
-                                 }) => {
+  label,
+  isShowingMobileBurger,
+  onMobileBurgerClick,
+}) => {
   const dispatch = useAppDispatch();
   const { address, accounts } = useAppSelector((state) => state.myAccount);
   const profile = useSelectProfile(address);
   const account = accounts?.find((acc) => acc.address === address);
   const { openSingInModal } = useAuth();
   const { api } = useApi();
-  const [ hasSpace, setHasSpace ] = useState(false);
+  const [hasSpace, setHasSpace] = useState(false);
   const { isDesktop } = useResponsiveSize();
+  const { t } = useTranslation();
+
+  const router = useRouter();
+  const onClickMenu = (href: string) => {
+    if (href) {
+      router.push(href);
+      return;
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -47,7 +60,7 @@ const Header: FC<HeaderProps> = ({
         }
       });
     })();
-  }, [ address, api ]);
+  }, [address, api]);
 
   return (
     <AppBar
@@ -70,11 +83,11 @@ const Header: FC<HeaderProps> = ({
           ) : (
             <Link href={'/'}>
               <Image
-              src={'/substrateexchange-logo.png'}
-              alt={'Substrate Exchange logo'}
-              width={200}
-              height={30}
-            />
+                src={'/substrateexchange-logo.png'}
+                alt={'Substrate Exchange logo'}
+                width={200}
+                height={30}
+              />
             </Link>
           )}
           <Title type={TitleSizes.PREVIEW} className={styles.label}>
@@ -92,6 +105,12 @@ const Header: FC<HeaderProps> = ({
               {isDesktop && <ButtonEntity typeEntity={hasSpace ? 'post' : 'space'} />}
 
               <ButtonNotification />
+
+              <ButtonIcon
+                onClick={() => router.push(`/accounts/${address}`)}
+              >
+                <PersonOutlineIcon />
+              </ButtonIcon>
 
               <ButtonProfile
                 onClick={() => dispatch(toggleAccount())}

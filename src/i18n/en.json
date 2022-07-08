@@ -32,9 +32,9 @@
     "followers": "followers",
     "upvotes": "upvotes",
     "downvotes": "downvotes",
-    "posts": "posts",
+    "posts": "questions",
     "spaces": "spaces",
-    "article": "question",
+    "article": "article",
     "video": "video",
     "feed": "my feed"
   },
@@ -43,7 +43,7 @@
     "save": "Save",
     "close": "Close",
     "copy": "Copy",
-    "newPost": "Ask Question",
+    "newPost": "New post",
     "editPost": "Edit post",
     "createAPost": "Create a post",
     "createProfile": "Create profile",
@@ -74,7 +74,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
     "resetForm": "Reset form",
-    "createPost": "Create question",
+    "createPost": "Create post",
     "signOut": "SIGN OUT",
     "upload": "Upload",
     "uploadImage": "Upload cover image",
@@ -166,10 +166,10 @@
   },
   "forms": {
     "titles": {
-      "chooseSpace": "Choose a space for a Ask Question",
+      "chooseSpace": "Choose a space for a new post",
       "newSpace": "New Space",
       "editSpace": "Edit Space",
-      "newPost": "Ask Question",
+      "newPost": "New Post",
       "editPost": "Edit Post",
       "newProfile": "New Profile",
       "editProfile": "Edit Profile"
@@ -183,12 +183,12 @@
       "tags": "Tags"
     },
     "placeholder": {
-      "postBody": "Body",
+      "postBody": "Post body",
       "tags": "Press 'Enter' or 'Tab' key to add tags",
       "profileName": "Profile name",
       "about": "About",
       "videoUrl": "Video URL",
-      "postTitle": "Title",
+      "postTitle": "Post title",
       "spaceName": "Space name",
       "description": "Description",
       "addReply": "Add a reply...",

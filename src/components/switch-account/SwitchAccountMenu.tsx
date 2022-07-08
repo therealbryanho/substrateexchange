@@ -73,7 +73,7 @@ const SwitchAccountMenu: FC<SwitchAccountContentProps> = ({ onClose }) => {
       />
       <List className={styles.profileContainer}>
         <Divider variant="middle" className={styles.firstDivider} />
-        <ListItem
+        {/* <ListItem
           button
           key={'my profile'}
           className={styles.item}
@@ -83,7 +83,7 @@ const SwitchAccountMenu: FC<SwitchAccountContentProps> = ({ onClose }) => {
             <PersonOutlineIcon />
           </ListItemIcon>
           <ListItemText primary={t('buttons.myProfile')} />
-        </ListItem>
+        </ListItem> */}
         <ListItem
           button
           key={'edit my profile'}
@@ -147,7 +147,7 @@ const SwitchAccountMenu: FC<SwitchAccountContentProps> = ({ onClose }) => {
             </List>
           </CardWrapper>
         </Popper>
-        <ListItem
+        {/* <ListItem
           button
           key={'setting'}
           className={styles.item}
@@ -157,7 +157,7 @@ const SwitchAccountMenu: FC<SwitchAccountContentProps> = ({ onClose }) => {
             <SettingsOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary={t('buttons.settings')} />
-        </ListItem>
+        </ListItem> */}
         <Divider variant="middle" className={styles.lastDivider} />
       </List>
     </>

@@ -14,7 +14,7 @@ export const MyFeed = ({
   return (
     <PostList
       ids={ids}
-      visibility={'onlyVisible'}
+      visibility={'onlyPublic'}
       type={type}
       myAddress={address}
     />
