@@ -68,12 +68,14 @@ const Header: FC<HeaderProps> = ({
               {isShowingMobileBurger ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
           ) : (
-            <Image
+            <Link href={'/'}>
+              <Image
               src={'/substrateexchange-logo.png'}
               alt={'Substrate Exchange logo'}
               width={200}
               height={30}
             />
+            </Link>
           )}
           <Title type={TitleSizes.PREVIEW} className={styles.label}>
             <Link href={'/'}>

@@ -51,7 +51,7 @@
     "save": "Save",
     "close": "Close",
     "copy": "Copy",
-    "newPost": "New post",
+    "newPost": "Ask Question",
     "editPost": "Edit post",
     "createAPost": "Create a post",
     "createProfile": "Create profile",
@@ -175,10 +175,10 @@
   },
   "forms": {
     "titles": {
-      "chooseSpace": "Choose a space for a new post",
+      "chooseSpace": "Choose a space for a Ask Question",
       "newSpace": "New Space",
       "editSpace": "Edit Space",
-      "newPost": "New Post",
+      "newPost": "Ask Question",
       "editPost": "Edit Post",
       "newProfile": "New Profile",
       "editProfile": "Edit Profile"
@@ -192,12 +192,12 @@
       "tags": "Tags"
     },
     "placeholder": {
-      "postBody": "Post body",
+      "postBody": "Body",
       "tags": "Press 'Enter' or 'Tab' key to add tags",
       "profileName": "Profile name",
       "about": "About",
       "videoUrl": "Video URL",
-      "postTitle": "Post title",
+      "postTitle": "Title",
       "spaceName": "Space name",
       "description": "Description",
       "addReply": "Add a reply...",

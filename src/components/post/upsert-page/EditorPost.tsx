@@ -100,7 +100,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
       };
       return [ postId, update ];
     } else {
-      //if creating a new post
+      //if creating a Ask Question
       return [ spaceId, regularPostExtention, {IPFS: cid} ];
     }
   };
@@ -110,10 +110,10 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
       label: t('tabs.article'),
       tabValue: TypePostTabs.Article,
     },
-    {
-      label: t('tabs.video'),
-      tabValue: TypePostTabs.Video,
-    },
+    // {
+    //   label: t('tabs.video'),
+    //   tabValue: TypePostTabs.Video,
+    // },
   ];
 
   const handleTitle = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -229,7 +229,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
             />
           )}
 
-          {!isSharedPost && activeTab === TypePostTabs.Article && (
+          {/* {!isSharedPost && activeTab === TypePostTabs.Article && (
             <File
               type={'image'}
               image={image}
@@ -238,33 +238,28 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
               setMbError={setMbError}
               className={styles.file}
             />
-          )}
+          )} */}
 
           <Box component={'form'} className={styles.form}>
-            {!isSharedPost && activeTab === TypePostTabs.Video && (
-              <>
-                <Input
-                  label={t('forms.placeholder.videoUrl')}
-                  value={link}
-                  onChange={handleLink}
-                />
-
-                <Embed link={link}/>
-              </>
-            )}
+            
 
             {!isSharedPost && (
+              <div>
+                <div>{t('forms.placeholder.postTitle')}</div>
               <Input
                 label={t('forms.placeholder.postTitle')}
                 value={title}
                 onChange={handleTitle}
+                placeholder='Be specific and imagine you’re asking a question to another person'
               />
+              </div>
             )}
 
+            <div>{t('forms.placeholder.postBody')}</div>
             <Editor
               value={body}
               onChange={handleBody}
-              placeholder={t('forms.placeholder.postBody')}
+              placeholder='Include all the information someone would need to answer your question'
             />
 
             {!isSharedPost && <TagsInput tags={tags} setTags={setTags}/>}
