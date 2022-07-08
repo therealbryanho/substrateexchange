@@ -69,9 +69,9 @@ const Header: FC<HeaderProps> = ({
             </IconButton>
           ) : (
             <Image
-              src={'/react_logo.svg'}
-              alt={'react logo'}
-              width={30}
+              src={'/substrateexchange-logo.png'}
+              alt={'Substrate Exchange logo'}
+              width={200}
               height={30}
             />
           )}

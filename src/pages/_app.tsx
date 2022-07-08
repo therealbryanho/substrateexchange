@@ -31,10 +31,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     setIsShowingMobileBurger(current => !current);
   };
 
+
+  // <Sidebar
+  //  isShowingMobileBurger={isShowingMobileBurger}
+  //  onSidebarClose={handleMobileBurgerClick}
+  // />
+
   return (
     <StyledEngineProvider injectFirst>
       <Head>
-        <title>rSocial</title>
+        <title>SubstrateExchange</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <I18nextProvider i18n={i18n}>
@@ -44,12 +50,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             <ResponsiveProvider>
               <ApiProvider>
                 <AuthProvider>
-                  <Sidebar
-                    isShowingMobileBurger={isShowingMobileBurger}
-                    onSidebarClose={handleMobileBurgerClick}
-                  />
                   <Header
-                    label="rSocial"
+                    label=""
                     onMobileBurgerClick={handleMobileBurgerClick}
                     isShowingMobileBurger={isShowingMobileBurger}
                   />

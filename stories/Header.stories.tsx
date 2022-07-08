@@ -13,5 +13,5 @@ const Template: Story<ComponentProps<typeof HeaderComponent>> = (args) => {
 
 export const Header = Template.bind({});
 Header.args = {
-  label: 'rSocial',
+  label: 'SubstrateExchange',
 };
