@@ -45,8 +45,8 @@ const ProfileAccount: FC<ProfileAccountProps> = (props) => {
   }
 
   const tabs = [
-    { label: 'Posts', tabValue: 'userPosts' },
-    { label: 'Spaces', tabValue: 'userSpaces' },
+    { label: 'Questions', tabValue: 'userPosts' },
+    { label: 'Topics', tabValue: 'userSpaces' },
   ];
 
   useEffect(() => {

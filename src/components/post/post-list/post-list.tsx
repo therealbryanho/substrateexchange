@@ -32,7 +32,6 @@ const loadMorePostsFn = async (loadMoreValues: loadMoreValuesArgs) => {
     ids,
     withSpace
   } = loadMoreValues;
-
   let postIds: string[];
 
   if (config.isOffChainFeed && myAddress && Router.query.tab === 'feeds') {
@@ -43,7 +42,11 @@ const loadMorePostsFn = async (loadMoreValues: loadMoreValuesArgs) => {
     postIds = data.map((item) => item.post_id || '');
   } else {
     const allSuggestedPotsIds = await loadSuggestedPostIds(api, ids);
-    postIds = getSuggestedPostIdsByPage(allSuggestedPotsIds, size, page);
+    if (allSuggestedPotsIds && allSuggestedPotsIds.length > 0){
+      postIds = getSuggestedPostIdsByPage(allSuggestedPotsIds, size, page);
+    }else{
+      postIds = [];
+    }
   }
 
   await dispatch(
@@ -70,8 +73,8 @@ const PostList: FC<PostListProps> = ({
   const [postsData, setPostsData] = useState<string[]>([]);
   const dispatch = useAppDispatch();
   const { api } = useApi();
-  const [ totalCount, setTotalCount ] = useState(0);
-  const [ isEmpty, setIsEmpty ] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
+  const [isEmpty, setIsEmpty] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
 
@@ -90,7 +93,7 @@ const PostList: FC<PostListProps> = ({
   useEffect(() => {
     setTotalCount(0);
     setIsEmpty(false);
-  }, [ myAddress ]);
+  }, [myAddress]);
 
   useEffect(() => {
     if (totalCount || isEmpty) return;
@@ -99,18 +102,18 @@ const PostList: FC<PostListProps> = ({
     if (config.isOffChainFeed && isMounted) {
       if (type === ListType.feeds) {
         myAddress &&
-        getFeedCount(myAddress).then(
-          (res) => {
-            if (+res === 0) {
-              setIsEmpty(true);
-              setTotalCount(0);
-            } else {
-              setIsEmpty(false);
-              setTotalCount(res);
-            }
-          },
-          (err) => console.log('error', err)
-        );
+          getFeedCount(myAddress).then(
+            (res) => {
+              if (+res === 0) {
+                setIsEmpty(true);
+                setTotalCount(0);
+              } else {
+                setIsEmpty(false);
+                setTotalCount(res);
+              }
+            },
+            (err) => console.log('error', err)
+          );
         loadMore(config.infinityScrollFirstPage, config.infinityScrollOffset).then((ids) =>
           setPostsData(ids)
         );
@@ -145,7 +148,7 @@ const PostList: FC<PostListProps> = ({
     return () => {
       isMounted = false;
     };
-  }, [ loadMore, router, totalCount ]);
+  }, [loadMore, router, totalCount]);
 
   return (
     <InfinityListScroll

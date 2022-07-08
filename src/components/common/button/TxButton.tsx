@@ -71,12 +71,14 @@ const TxButton: FC<TxButtonProps> = ({
     } else if (!api.tx[pallet][method]) {
       throw new Error(`Unable to find api.tx.${pallet}.${method}`);
     }
-
+console.log(api.tx[pallet]);
+console.log(method);
     let resultParams = (params || []) as any[];
 
     if (isFunction(params)) {
       resultParams = await params();
     }
+    console.log(...resultParams);
 
     return api.tx[pallet][method](...resultParams);
   };
@@ -139,10 +141,11 @@ const TxButton: FC<TxButtonProps> = ({
         : status.asInBlock;
 
       console.warn(`✅ Tx finalized. Block hash: ${blockHash.toString()}`);
-
+      console.log(result.events);
       result.events
         .filter(({ event: { section } }): boolean => section === 'system')
         .forEach(({ event: { method } }): void => {
+          console.log(method);
           if (method === 'ExtrinsicSuccess') {
             doOnSuccess(result);
           } else if (method === 'ExtrinsicFailed') {
@@ -201,6 +204,7 @@ const TxButton: FC<TxButtonProps> = ({
   const isDisabled = disabled || isSending || isEmptyStr(tx);
 
   const sendSignedTx = async () => {
+    console.log("sendSignedTx");
     if (!accountId) {
       throw new Error('No account id provided');
     }

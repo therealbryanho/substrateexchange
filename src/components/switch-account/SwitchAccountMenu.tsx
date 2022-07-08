@@ -8,9 +8,9 @@ import {
   Popper,
 } from '@mui/material';
 import styles from './SwitchAccount.module.sass';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+// import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+// import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useRouter } from 'next/router';
 import { useAppSelector } from 'src/store/app/store';

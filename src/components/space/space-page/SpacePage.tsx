@@ -51,6 +51,7 @@ const PostList: FC<Omit<ViewSpaceProps, 'spaceData'>> = ({posts, postIds, visibi
 };
 
 const SpacePage: FC<SpacePageProps> = (props) => {
+  console.log(props);
   const { spaceData, postIds, posts, notFound } = props;
 
   const isMySpace = useIsMySpace(spaceData.struct);

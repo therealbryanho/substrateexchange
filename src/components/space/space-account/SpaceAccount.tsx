@@ -55,7 +55,7 @@ const SpaceAccount: FC<SpaceWithSomeDetails> = (props) => {
             </ButtonComponent>
           ) : (
             <>
-              <ModalSendTips open={isVisible} toggleModal={toggleModal} ownerId={struct.ownerId}/>
+              <ModalSendTips open={isVisible} toggleModal={toggleModal} ownerId={struct.ownerId} />
 
               <ButtonSendTips
                 onClick={toggleModal}
@@ -71,7 +71,13 @@ const SpaceAccount: FC<SpaceWithSomeDetails> = (props) => {
               className={styles.button}
             />
           ) : (
-            <ButtonFollowSpace className={styles.button} space={struct} />
+            <>
+              <ButtonWritePost
+                onClick={() => setSpaceId(id)}
+                className={styles.button}
+              />
+              <ButtonFollowSpace className={styles.button} space={struct} />
+            </>
           )}
         </>
       }

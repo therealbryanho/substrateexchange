@@ -14,6 +14,7 @@ const ButtonWritePost: FC<ButtonComponentProps> = ({
 
   const writePost = () => {
     onClick && onClick();
+    
     router.push('/posts/new');
   };
 

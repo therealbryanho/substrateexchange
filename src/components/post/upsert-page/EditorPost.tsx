@@ -39,6 +39,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
   const { postId, isWithLink } = props;
   const address = useMyAddress();
   const router = useRouter();
+  console.log(router);
   const { api } = useApi();
   const { spaceId: currentSpaceId } = router.query;
   const postData = useSelectPost(postId);
@@ -46,22 +47,24 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
     (postData?.post.struct as SharedPostStruct) || {};
   const initialPostValue = getInitialPostValue(postData?.post.content);
 
-  const [ activeTab, setActiveTab ] = useState<TypePostTabs>(
+  const [activeTab, setActiveTab] = useState<TypePostTabs>(
     TypePostTabs.Article
   );
-  const [ tags, setTags ] = useState<string[]>([]);
-  const [ title, setTitle ] = useState('');
-  const [ body, setBody ] = useState('');
-  const [ image, setImage ] = useState('');
-  const [ link, setLink ] = useState('');
-  const [ mySpaceIds, setMySpaceIds ] = useState<string[]>([]);
-  const [ spaceId, setSpaceId ] = useLocalStorage('spaceId', mySpaceIds[0] || '');
-  const [ mbError, setMbError ] = useState(false);
+  const [tags, setTags] = useState<string[]>([]);
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [image, setImage] = useState('');
+  const [link, setLink] = useState('');
+  const [mySpaceIds, setMySpaceIds] = useState<string[]>([]);
+  const [spaceId, setSpaceId] = useLocalStorage('spaceId', mySpaceIds[0] || '');
+  const [mbError, setMbError] = useState(false);
   const { t } = useTranslation();
-  const [ cidImage, setCidImage ] = useState<IpfsCid>();
+  const [cidImage, setCidImage] = useState<IpfsCid>();
 
-  const regularPostExtention = {RegularPost: null};
-
+  const regularPostExtention = { RegularPost: null };
+  console.log(`postId: ${postId}`);
+  console.log(`currentSpaceId: ${currentSpaceId}`);
+  console.log(`spaceId: ${spaceId}`);
   const initData = () => {
     setTags(initialPostValue.tags || []);
     setTitle(initialPostValue.title || '');
@@ -95,13 +98,13 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
       //if updating the existing post
       const update = {
         currentSpaceId,
-        content: {IPFS: cid},
+        content: { IPFS: cid },
         hidden: null,
       };
-      return [ postId, update ];
+      return [postId, update];
     } else {
       //if creating a Ask Question
-      return [ spaceId, regularPostExtention, {IPFS: cid} ];
+      return [spaceId, regularPostExtention, { IPFS: cid }];
     }
   };
 
@@ -144,19 +147,19 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
 
     if (postData) {
       newCid &&
-      unpinIpfsCid(
-        api.subsocial.ipfs,
-        //@ts-ignore
-        postData?.post?.content?.id,
-        newCid
-      );
+        unpinIpfsCid(
+          api.subsocial.ipfs,
+          //@ts-ignore
+          postData?.post?.content?.id,
+          newCid
+        );
 
       cidImage &&
-      unpinIpfsCid(
-        api.subsocial.ipfs,
-        postData?.post?.content?.image,
-        cidImage
-      );
+        unpinIpfsCid(
+          api.subsocial.ipfs,
+          postData?.post?.content?.image,
+          cidImage
+        );
     }
 
     router.push(`/${currentSpaceId || spaceId}/${id}`);
@@ -164,19 +167,19 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
 
   const onFailed: TxFailedCallback = (txResult, newCid) => {
     newCid &&
-    unpinIpfsCid(
-      api.subsocial.ipfs,
-      newCid,
-      //@ts-ignore
-      postData?.post?.content?.id
-    );
+      unpinIpfsCid(
+        api.subsocial.ipfs,
+        newCid,
+        //@ts-ignore
+        postData?.post?.content?.id
+      );
 
     cidImage &&
-    unpinIpfsCid(
-      api.subsocial.ipfs,
-      cidImage,
-      postData?.post?.content?.image
-    );
+      unpinIpfsCid(
+        api.subsocial.ipfs,
+        cidImage,
+        postData?.post?.content?.image
+      );
   };
 
   useEffect(() => {
@@ -184,7 +187,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
       setActiveTab(TypePostTabs.Video);
     }
     initData();
-  }, [ props ]);
+  }, [props]);
 
   useEffect(() => {
     (async () => {
@@ -194,7 +197,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
         setMySpaceIds(ids);
       });
     })();
-  }, [ address, api ]);
+  }, [address, api]);
 
   return (
     <Layout>
@@ -211,7 +214,7 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
             {postId ? t('forms.titles.editPost') : t('forms.titles.newPost')}
           </Title>
 
-          {!isSharedPost && (
+          {!isSharedPost && false && (
             <Tabs
               value={activeTab}
               tabs={tabs}
@@ -219,15 +222,15 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
               className={styles.tabs}
             />
           )}
-
-          {!postId && (
+          
+          {!postId && !spaceId &&
             <SelectSpaces
               spaceIds={mySpaceIds}
               initialId={spaceId}
               className={styles.select}
               onChange={setSpaceId}
             />
-          )}
+          }
 
           {/* {!isSharedPost && activeTab === TypePostTabs.Article && (
             <File
@@ -241,28 +244,28 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
           )} */}
 
           <Box component={'form'} className={styles.form}>
-            
+
 
             {!isSharedPost && (
               <div>
-                <div>{t('forms.placeholder.postTitle')}</div>
-              <Input
-                label={t('forms.placeholder.postTitle')}
-                value={title}
-                onChange={handleTitle}
-                placeholder='Be specific and imagine you’re asking a question to another person'
-              />
+                {/* <div>{t('forms.placeholder.postTitle')}</div> */}
+                <Input
+                  label={t('forms.placeholder.postTitle')}
+                  value={title}
+                  onChange={handleTitle}
+                  placeholder='Be specific and imagine you’re asking a question to another person'
+                />
               </div>
             )}
 
-            <div>{t('forms.placeholder.postBody')}</div>
+            {/* <div>{t('forms.placeholder.postBody')}</div> */}
             <Editor
               value={body}
               onChange={handleBody}
               placeholder='Include all the information someone would need to answer your question'
             />
 
-            {!isSharedPost && <TagsInput tags={tags} setTags={setTags}/>}
+            {!isSharedPost && <TagsInput tags={tags} setTags={setTags} />}
 
             {isSharedPost && (
               <Post

@@ -1,8 +1,8 @@
 {
   "imageShouldBeLessThan": "Image should be less than {{limit}} MB",
   "general": {
-    "post": "post",
-    "space": "space",
+    "post": "question",
+    "space": "topic",
     "comment": "comment",
     "profile": "profile",
     "seeMore": "See More",
@@ -20,8 +20,8 @@
     "follower_other": "Followers",
     "following_one": "Following",
     "following_other": "Followings",
-    "post_one": "Post",
-    "post_other": "Posts",
+    "post_one": "Question",
+    "post_other": "Questions",
     "comment_one": "Comment",
     "comment_other": "Comments",
     "reply_one": "reply",
@@ -33,7 +33,7 @@
     "upvotes": "upvotes",
     "downvotes": "downvotes",
     "posts": "questions",
-    "spaces": "spaces",
+    "spaces": "topics",
     "article": "article",
     "video": "video",
     "feed": "my feed"
@@ -43,9 +43,9 @@
     "save": "Save",
     "close": "Close",
     "copy": "Copy",
-    "newPost": "New post",
-    "editPost": "Edit post",
-    "createAPost": "Create a post",
+    "newPost": "New question",
+    "editPost": "Edit question",
+    "createAPost": "Create a question",
     "createProfile": "Create profile",
     "sendTips": "Send tips",
     "following": "Following",
@@ -64,17 +64,17 @@
     "view": "View",
     "makeVisible": "Make visible",
     "hideComment": "Hide comment",
-    "hidePost": "Hide post",
-    "hideSpace": "Hide space",
+    "hidePost": "Hide question",
+    "hideSpace": "Hide topic",
     "upvote": "Upvote",
     "downvote": "Downvote",
-    "writePost": "Write post",
-    "editSpace": "Edit space",
-    "createSpace": "Create space",
+    "writePost": "Write question",
+    "editSpace": "Edit topic",
+    "createSpace": "Create topic",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "resetForm": "Reset form",
-    "createPost": "Create post",
+    "resetForm": "Reset",
+    "createPost": "Ask question",
     "signOut": "SIGN OUT",
     "upload": "Upload",
     "uploadImage": "Upload cover image",
@@ -82,7 +82,7 @@
     "editMyProfile": "Edit my profile",
     "settings": "Settings",
     "Language": "Language",
-    "createMyFirstSpace": "Create my first space",
+    "createMyFirstSpace": "Create my first topic",
     "getTokens": "Get tokens",
     "landingPage": "Landing page",
     "legalDocuments": "Legal Documents",
@@ -158,7 +158,7 @@
     "cannotCopy": "Cannot copy"
   },
   "post": {
-    "sharePost": "Share post",
+    "sharePost": "Share question",
     "inResponseTo": "In response to "
   },
   "serverApp": {
@@ -166,11 +166,11 @@
   },
   "forms": {
     "titles": {
-      "chooseSpace": "Choose a space for a new post",
-      "newSpace": "New Space",
-      "editSpace": "Edit Space",
-      "newPost": "New Post",
-      "editPost": "Edit Post",
+      "chooseSpace": "Choose a topic for a new question",
+      "newSpace": "New topic",
+      "editSpace": "Edit topic",
+      "newPost": "New Question",
+      "editPost": "Edit Question",
       "newProfile": "New Profile",
       "editProfile": "Edit Profile"
     },
@@ -183,18 +183,18 @@
       "tags": "Tags"
     },
     "placeholder": {
-      "postBody": "Post body",
+      "postBody": "Question body",
       "tags": "Press 'Enter' or 'Tab' key to add tags",
       "profileName": "Profile name",
       "about": "About",
       "videoUrl": "Video URL",
-      "postTitle": "Post title",
-      "spaceName": "Space name",
+      "postTitle": "Question Title",
+      "spaceName": "topic name",
       "description": "Description",
       "addReply": "Add a reply...",
       "addComment": "Add a comment...",
       "comment": "Comment",
-      "postInSpace": "Post in a space"
+      "postInSpace": "You are asking a question in ..."
     },
     "permissions": {
       "whoCanPost": {
@@ -205,56 +205,56 @@
     }
   },
   "generalMessages": {
-    "hiddenPostBySpace": "This post is not visible because its space is hidden",
-    "hiddenPost": "This post is unlisted and only you can see it",
-    "hiddenSpace": "This space is unlisted and only you can see it",
+    "hiddenPostBySpace": "This question is not visible because its topic is hidden",
+    "hiddenPost": "This question is unlisted and only you can see it",
+    "hiddenSpace": "This topic is unlisted and only you can see it",
     "hiddenComment": "This comment is unlisted and only you can see it",
-    "emptyFeed": "Your feed is empty. Try to follow more spaces ;)",
-    "createSpaceFirst": "Please create your space first",
+    "emptyFeed": "Your feed is empty. Try to follow more topics ;)",
+    "createSpaceFirst": "Please create your topic first",
     "dontHavePermission": "You do not have permission to edit this {{type}}"
   },
   "formHints": {
     "whoCanPost": {
-      "space_owner": "Only you can create and edit posts in this space.",
-      "follower": "You and followers of this space can create and edit own posts.",
-      "everyone": "Everyone can create and edit their own posts in this space.",
-      "none": "None can create or edit posts in this space."
+      "space_owner": "Only you can create and edit questions in this topic.",
+      "follower": "You and followers of this topic can create and edit own questions.",
+      "everyone": "Everyone can create and edit their own questions in this topic.",
+      "none": "None can create or edit questions in this topic."
     },
     "embedded": "You can embed links from YouTube, Vimeo and SoundCloud."
   },
   "notifications": {
     "title": "Notifications",
     "AccountFollowed": "followed your account",
-    "SpaceFollowed": "followed your space",
-    "SpaceCreated": "created a new space",
-    "CommentCreated": "commented on your post",
+    "SpaceFollowed": "followed your topic",
+    "SpaceCreated": "created a new topic",
+    "CommentCreated": "commented on your question",
     "CommentReplyCreated": "replied to your comment on",
-    "PostShared": "shared your post",
+    "PostShared": "shared your question",
     "CommentShared": "shared your comment on",
-    "PostReactionCreated": "reacted to your post",
+    "PostReactionCreated": "reacted to your question",
     "CommentReactionCreated": "reacted to your comment on",
     "aggregate": "and {{count}} other {{message}} "
   },
   "activities": {
     "AccountFollowed": "followed the account",
-    "SpaceFollowed": "followed the space",
-    "SpaceCreated": "created the space",
-    "PostCreated": "created the post",
-    "PostSharing": "shared the post",
-    "PostShared": "shared the post",
-    "CommentCreated": "commented on the post",
+    "SpaceFollowed": "followed the topic",
+    "SpaceCreated": "created the topic",
+    "PostCreated": "created the question",
+    "PostSharing": "shared the question",
+    "PostShared": "shared the question",
+    "CommentCreated": "commented on the question",
     "CommentShared": "shared a comment on",
     "CommentReplyCreated": "replied to a comment on",
-    "PostReactionCreated": "reacted to the post",
+    "PostReactionCreated": "reacted to the question",
     "CommentReactionCreated": "reacted to a comment on"
   },
   "statistics": {
     "AccountFollowed": "Accounts followed",
-    "SpaceFollowed": "Spaces followed",
-    "SpaceCreated": "Spaces created",
-    "PostCreated": "Posts created",
-    "PostSharing": "Posts shared",
-    "PostShared,CommentShared": "Posts shared",
+    "SpaceFollowed": "Topics followed",
+    "SpaceCreated": "Topics created",
+    "PostCreated": "Question created",
+    "PostSharing": "Question shared",
+    "PostShared,CommentShared": "Question shared",
     "CommentCreated,CommentReplyCreated": "Comments created",
     "PostReactionCreated,CommentReactionCreated": "Upvotes + downvotes"
   },
@@ -272,11 +272,11 @@
     "unverifiedIdetity": "Kusama identity"
   },
   "postPage": {
-    "originalPost": "Original post:"
+    "originalPost": "Original question:"
   },
   "spaces": {
     "offical": {
-      "officialSpace": "Official space",
+      "officialSpace": "Official topic",
       "unclaimedSpace": "Claim ownership is pending"
     }
   },
@@ -285,14 +285,14 @@
   },
   "content": {
     "noFeed": "No feed yet",
-    "noPosts": "No posts yet",
-    "noSpaces": "No spaces yet",
+    "noPosts": "No questions yet",
+    "noSpaces": "No topics yet",
     "noDownload": "No download yet",
-    "postNotFound": "Post not found",
-    "morePost": "Loading more posts...",
-    "moreSpaces": "Loading more spaces...",
+    "postNotFound": "Question not found",
+    "morePost": "Loading more questions...",
+    "moreSpaces": "Loading more topics...",
     "moreProfiles": "Loading more profiles...",
-    "loadingSpace": "Loading spaces...",
+    "loadingSpace": "Loading topics...",
     "loading": "Loading..."
   },
   "dayjs": {

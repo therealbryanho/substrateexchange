@@ -14,7 +14,10 @@ export const config = {
   isOffChainFeed: false,
   enableTips: false,
   recommendedSpaceIds: [
-    '1001',
-    '1002',
+    '1046',
+    '1047',
+    '1048',
+    '1049',
+    '1050',
   ],
 }

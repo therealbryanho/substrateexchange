@@ -21,7 +21,7 @@ import { ACCOUNT_STATUS } from 'src/models/auth';
 
 export enum ListType {
   feeds = 'feeds',
-  posts = 'posts',
+  posts = 'questions',
 }
 
 const ButtonBar = () => {
@@ -35,7 +35,7 @@ const ButtonBar = () => {
   useEffect(() => {
     if (router) {
       if (router.pathname === '/') {
-        dispatch(changeTab('posts'));
+        dispatch(changeTab('questions'));
       }
 
       if (router.query.tab) {
@@ -51,14 +51,14 @@ const ButtonBar = () => {
 
   const tabs: TabProps[] = isAuthorized
     ? [
-        { label: t('tabs.feed'), tabValue: 'feeds' },
-        { label: t('tabs.posts'), tabValue: 'posts' },
-        { label: t('tabs.spaces'), tabValue: 'spaces' },
-      ]
+      { label: t('tabs.feed'), tabValue: 'feeds' },
+      { label: t('tabs.posts'), tabValue: 'questions' },
+      { label: t('tabs.spaces'), tabValue: 'topics' },
+    ]
     : [
-        { label: t('tabs.posts'), tabValue: 'posts' },
-        { label: t('tabs.spaces'), tabValue: 'spaces' },
-      ];
+      { label: t('tabs.posts'), tabValue: 'questions' },
+      { label: t('tabs.spaces'), tabValue: 'topics' },
+    ];
 
   return (
     <div className={styles.box}>
@@ -74,23 +74,25 @@ const ButtonBar = () => {
 };
 
 const Content = () => {
+  console.log("Content");
   const { value } = useAppSelector((state) => state.main);
   const address = useMyAddress();
   const { api } = useApi();
 
   const [followedSpaceIds, setFollowedSpaceIds] = useState<SpaceId[]>([]);
 
+
   const getAccountFeedIds = async (address: string) =>
     await api.subsocial.substrate.spaceIdsFollowedByAccount(address);
 
   useEffect(() => {
     let postIds: string[] = [];
-
     address &&
       getAccountFeedIds(address).then((ids) => {
         ids.forEach((id) => postIds.push(id.toString()));
         setFollowedSpaceIds(postIds);
       });
+
   }, [address]);
 
   switch (value) {
@@ -102,9 +104,9 @@ const Content = () => {
           address={address}
         />
       );
-    case 'posts':
-      return <PostList ids={config.recommendedSpaceIds} visibility={'onlyVisible'} />;
-    case 'spaces':
+    case 'questions':
+      return <PostList ids={config.recommendedSpaceIds} visibility={'onlyPublic'} />;
+    case 'topics':
       return <SpaceList ids={config.recommendedSpaceIds} />;
     default:
       return null;

@@ -11,22 +11,25 @@ import { useModal } from "src/hooks/useModal";
 import { ACCOUNT_STATUS } from 'src/models/auth';
 import { useAuth } from 'src/components/auth/AuthContext';
 import { config } from 'src/config';
+import { useIsMyAddress } from 'src/hooks/useIsMySpace';
 
 const CommentAction: FC<CommentActionProps> = ({ onReply, comment }) => {
   const { isMobile } = useResponsiveSize();
-
+  const isMyComment = useIsMyAddress(comment.ownerId);
   const { isVisible, toggleModal } = useModal();
   const { status } = useAuth();
   const isAuthRequired = status !== ACCOUNT_STATUS.AUTHORIZED;
 
   return (
     <div className={styles.group}>
-       <ModalSendTips open={isVisible} toggleModal={toggleModal} ownerId={comment.ownerId}/>
-      <ButtonSendTips
-                onClick={toggleModal}
-                className={styles.button}
-                disabled={config.enableTips && isAuthRequired}
-              />
+      {!isMyComment && <>
+        <ModalSendTips open={isVisible} toggleModal={toggleModal} ownerId={comment.ownerId} />
+        <ButtonSendTips
+          onClick={toggleModal}
+          className={styles.button}
+          disabled={config.enableTips && isAuthRequired}
+        />
+      </>}
       <ButtonVotes
         post={comment}
         reactionEnum={ReactionEnum.Upvote}

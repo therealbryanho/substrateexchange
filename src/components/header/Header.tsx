@@ -23,7 +23,6 @@ import ButtonSignIn from '../common/button/button-sign-in/ButtonSignIn';
 import ButtonProfile from '../common/button/button-profile/ButtonProfile';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
 import ButtonIcon from '../common/button/button-icon/ButtonIcon';
 
 const Header: FC<HeaderProps> = ({
@@ -39,15 +38,8 @@ const Header: FC<HeaderProps> = ({
   const { api } = useApi();
   const [hasSpace, setHasSpace] = useState(false);
   const { isDesktop } = useResponsiveSize();
-  const { t } = useTranslation();
-
   const router = useRouter();
-  const onClickMenu = (href: string) => {
-    if (href) {
-      router.push(href);
-      return;
-    }
-  };
+
 
   useEffect(() => {
     (async () => {
