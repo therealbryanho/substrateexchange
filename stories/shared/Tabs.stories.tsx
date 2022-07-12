@@ -16,8 +16,8 @@ Tabs.args = {
   value: 'posts',
   tabs: [
     { label: 'My feed', tabValue: 'feeds' },
-    { label: 'Posts', tabValue: 'questions' },
-    { label: 'Spaces', tabValue: 'topics' },
+    { label: 'Postsdd', tabValue: 'questions' },
+    { label: 'Spacesdd', tabValue: 'topics' },
   ],
   setValue: () => {},
 };
