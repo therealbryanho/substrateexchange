@@ -51,9 +51,9 @@ const ButtonBar = () => {
 
   const tabs: TabProps[] = isAuthorized
     ? [
-      { label: t('tabs.feed'), tabValue: 'feeds' },
-      { label: t('tabs.posts'), tabValue: 'questions' },
-      { label: t('tabs.spaces'), tabValue: 'topics' },
+      { label: "My Feed", tabValue: 'feeds' },
+      { label: "Questions", tabValue: 'questions' },
+      { label: "Topics", tabValue: 'topics' },
     ]
     : [
       { label: t('tabs.posts'), tabValue: 'questions' },
