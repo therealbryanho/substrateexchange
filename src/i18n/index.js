@@ -27,6 +27,7 @@ i18n.changeLanguage(lng, () => DateService.updateLocale(lng));
 i18n.on('languageChanged', (lang) => DateService.updateLocale(lang));
 
 if (!Object.keys(languages).includes(i18n.language)) {
+  console.log(`Language Not Found, changing to ${Object.keys(languages)[0]}`);
   i18n.changeLanguage(Object.keys(languages)[0]);
 }
 
