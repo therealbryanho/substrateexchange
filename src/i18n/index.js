@@ -26,9 +26,11 @@ const lng = i18n.language.replace(/"/g, '');
 i18n.changeLanguage(lng, () => DateService.updateLocale(lng));
 i18n.on('languageChanged', (lang) => DateService.updateLocale(lang));
 
+console.log(i18n.language);
 if (!Object.keys(languages).includes(i18n.language)) {
   console.log(`Language Not Found, changing to ${Object.keys(languages)[0]}`);
   i18n.changeLanguage(Object.keys(languages)[0]);
 }
+
 
 export default i18n;
