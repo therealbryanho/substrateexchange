@@ -1,4 +1,12 @@
-# subsocial-react-example
+# Substrate Exchange
+
+Substrate Exchange is a public platform building the definitive collection of questions & answers related to development with Substrate and Polkadot.
+
+Devpost submission - https://devpost.com/software/substrate-exchange
+
+Substrate Exchange alpha - https://substrate-exchange.netlify.app/
+
+# Buiding the application
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
