@@ -35,8 +35,8 @@
     "followers": "followers",
     "upvotes": "upvotes",
     "downvotes": "downvotes",
-    "posts": "questionsen",
-    "spaces": "topicsen",
+    "posts": "questions",
+    "spaces": "topics",
     "article": "article",
     "video": "video",
     "feed": "my feed"
