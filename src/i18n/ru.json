@@ -51,8 +51,8 @@
     "save": "Save",
     "close": "Close",
     "copy": "Copy",
-    "newPost": "Ask Question",
-    "editPost": "Edit post",
+    "newPost": "New Question",
+    "editPost": "Edit question",
     "createAPost": "Create a question",
     "createProfile": "Create profile",
     "sendTips": "Send tips",
@@ -81,8 +81,8 @@
     "createSpace": "Create topic",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "resetForm": "Reset form",
-    "createPost": "Create question",
+    "resetForm": "Reset",
+    "createPost": "Ask question",
     "signOut": "SIGN OUT",
     "upload": "Upload",
     "uploadImage": "Upload cover image",
@@ -175,7 +175,7 @@
   },
   "forms": {
     "titles": {
-      "chooseSpace": "Choose a topic to Ask Question",
+      "chooseSpace": "Choose a topic to Ask a Question",
       "newSpace": "New topic",
       "editSpace": "Edit topic",
       "newPost": "Ask Question",
@@ -192,18 +192,18 @@
       "tags": "Tags"
     },
     "placeholder": {
-      "postBody": "Body",
+      "postBody": "Question body",
       "tags": "Press 'Enter' or 'Tab' key to add tags",
       "profileName": "Profile name",
       "about": "About",
       "videoUrl": "Video URL",
-      "postTitle": "Title",
+      "postTitle": "Question Title",
       "spaceName": "topic name",
       "description": "Description",
       "addReply": "Add a reply...",
       "addComment": "Add a comment...",
       "comment": "Comment",
-      "postInSpace": "Ask in a topic"
+      "postInSpace": "You are asking a question in ..."
     },
     "permissions": {
       "whoCanPost": {
@@ -224,10 +224,10 @@
   },
   "formHints": {
     "whoCanPost": {
-      "space_owner": "Only you can create and edit question in this space.",
+      "space_owner": "Only you can create and edit questions in this topic.",
       "follower": "You and followers of this topic can create and edit own questions.",
-      "everyone": "Everyone can create and edit their own question in this topic.",
-      "none": "None can create or edit question in this topic."
+      "everyone": "Everyone can create and edit their own questions in this topic.",
+      "none": "None can create or edit questions in this topic."
     },
     "embedded": "You can embed links from YouTube, Vimeo and SoundCloud."
   },
@@ -281,11 +281,11 @@
     "unverifiedIdetity": "Kusama identity"
   },
   "postPage": {
-    "originalPost": "Original post:"
+    "originalPost": "Original question:"
   },
   "spaces": {
     "offical": {
-      "officialSpace": "Official space",
+      "officialSpace": "Official topic",
       "unclaimedSpace": "Claim ownership is pending"
     }
   },

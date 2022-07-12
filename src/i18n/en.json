@@ -1,6 +1,7 @@
 {
   "imageShouldBeLessThan": "Image should be less than {{limit}} MB",
   "general": {
+    "title": "rSocial",
     "post": "question",
     "space": "topic",
     "comment": "comment",
@@ -13,9 +14,11 @@
   },
   "plural": {
     "reaction_one": "Reaction",
-    "reaction_other": "Reactions",
+    "reaction_few": "Reactions",
+    "reaction_many": "Reactions",
     "aggregate_one": "person",
-    "aggregate_other": "people",
+    "aggregate_few": "people",
+    "aggregate_many": "people",
     "follower_one": "Follower",
     "follower_other": "Followers",
     "following_one": "Following",
@@ -90,6 +93,7 @@
     "whatIsSubsocial": "What is Subsocial?",
     "reactApp": "React app",
     "angularApp": "Angular app",
+    "vueApp": "Vue app",
     "subsocialApp": "Subsocial app"
   },
   "modals": {
@@ -166,10 +170,10 @@
   },
   "forms": {
     "titles": {
-      "chooseSpace": "Choose a topic for a new question",
+      "chooseSpace": "Choose a topic to Ask a question",
       "newSpace": "New topic",
       "editSpace": "Edit topic",
-      "newPost": "New Question",
+      "newPost": "Ask Question",
       "editPost": "Edit Question",
       "newProfile": "New Profile",
       "editProfile": "Edit Profile"
@@ -198,9 +202,9 @@
     },
     "permissions": {
       "whoCanPost": {
-        "space_owner": "Only you can post",
-        "follower": "Followers can post",
-        "everyone": "Everyone can post"
+        "space_owner": "Only you can ask a question",
+        "follower": "Followers can ask a question",
+        "everyone": "Everyone can ask a question"
       }
     }
   },
