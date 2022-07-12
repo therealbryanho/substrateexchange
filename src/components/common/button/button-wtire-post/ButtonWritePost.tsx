@@ -25,7 +25,8 @@ const ButtonWritePost: FC<ButtonComponentProps> = ({
       disabled={disabled}
       {...props}
     >
-      {t('buttons.writePost')}
+      {/* {t('buttons.writePost')} */}
+      {"Ask a Question"}
     </ButtonComponent>
   );
 };

@@ -83,10 +83,12 @@ const ProfileAccount: FC<ProfileAccountProps> = (props) => {
                 router.push('/new');
               }}
             >
-              {t('buttons.createSpace')}
+              {/* {t('buttons.createSpace')} */}
+              {"New Topic"}
             </ButtonComponent>
             <Tooltip
-              title={hasSpace ? '' : `${t('generalMessages.createSpaceFirst')}`}
+              // title={hasSpace ? '' : `${t('generalMessages.createSpaceFirst')}`}
+              title={hasSpace ? '' : `${"Create a topic first"}`}
               className={styles.tooltip}
               placement="top"
               arrow
