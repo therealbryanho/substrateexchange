@@ -87,7 +87,8 @@ const ModalCreateSharedPost: FC<ModalCreateSharedPostProps> = ({
       <Box className={styles.box}>
         <div className={styles.header}>
           <Title type={TitleSizes.PREVIEW} className={styles.title}>
-            {t('post.sharePost')}
+            {"Share Question"}
+            {/* {t('post.sharePost')} */}
           </Title>
           <ButtonClose onClick={onClose} className={styles.buttonClose} />
         </div>
@@ -115,7 +116,8 @@ const ModalCreateSharedPost: FC<ModalCreateSharedPostProps> = ({
                 {t('buttons.cancel')}
               </ButtonCancel>
               <TxButton
-                label={t('buttons.createAPost')}
+                label={"Create a Question"}
+                // label={t('buttons.createAPost')}
                 accountId={address}
                 tx={'posts.createPost'}
                 params={() =>
@@ -141,7 +143,8 @@ const ModalCreateSharedPost: FC<ModalCreateSharedPostProps> = ({
               router.push('/new');
             }}
           >
-            {t('buttons.createMyFirstSpace')}
+            {"Create my first Topic"}
+            {/* {t('buttons.createMyFirstSpace')} */}
           </ButtonComponent>
         )}
       </Box>

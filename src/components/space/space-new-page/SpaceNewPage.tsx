@@ -14,7 +14,8 @@ const SpaceNewPage = () => {
   return (
     <Layout>
       <CardEdit
-        title={t('forms.titles.newSpace')}
+        title={"New Topic"}
+        // title={t('forms.titles.newSpace')}
         cancelButton={t('buttons.cancel')}
         saveButton={t('buttons.save')}
         onCancel={onCancel}

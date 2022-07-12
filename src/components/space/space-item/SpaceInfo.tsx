@@ -47,6 +47,7 @@ const Subheader: FC<{ spaceData: SpaceWithSomeDetails }> = (props) => {
             {t('plural.post', {
               count: props.spaceData.struct.postsCount || 0,
             })}
+            {(props.spaceData.struct.postsCount > 0) ? `${props.spaceData.struct.postsCount} Question` : `${props.spaceData.struct.postsCount} Question`}
           </SmallLink>
           &nbsp;·&nbsp;
         </>

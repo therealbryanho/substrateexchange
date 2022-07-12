@@ -28,7 +28,7 @@ const ButtonEntity: FC<ButtonEntityProps> = ({ typeEntity, ...props }) => {
     >
       <span>+</span>{' '}
       {/* {typeEntity === 'post' ? t('buttons.newPost') : t('buttons.createSpace')} */}
-      {typeEntity === 'post' ? "New Post" : "New Topic"}
+      {typeEntity === 'post' ? "New Question" : "New Topic"}
     </Button>
   );
 };

@@ -21,17 +21,20 @@ import { return404 } from '../../utils/next';
 import ErrorPage from 'next/error';
 import { Space } from '@subsocial/definitions/interfaces';
 
-const PostList: FC<Omit<ViewSpaceProps, 'spaceData'>> = ({posts, postIds, visibility}) => {
-    const dispatch = useAppDispatch()
-    const { api } = useApi()
-    const [ totalCount, setTotalCount ] = useState(0)
-    const { t } = useTranslation();
+const PostList: FC<Omit<ViewSpaceProps, 'spaceData'>> = ({ posts, postIds, visibility }) => {
+  const dispatch = useAppDispatch()
+  const { api } = useApi()
+  const [totalCount, setTotalCount] = useState(0)
+  const { t } = useTranslation();
 
   useEffect(() => {
     setTotalCount(postIds?.length || 0);
   }, []);
 
-  if (!posts || !postIds) return <EmptyComponent text={t('content.noPosts')}/>;
+  if (!posts || !postIds) return <EmptyComponent
+    text={"No Questions"}
+  // text={t('content.noPosts')} 
+  />;
 
   const initialPostIds = posts.map((post) => post.id);
 
@@ -45,8 +48,9 @@ const PostList: FC<Omit<ViewSpaceProps, 'spaceData'>> = ({posts, postIds, visibi
     dataSource={initialPostIds}
     loadMore={loadMore}
     totalCount={totalCount}
-    emptyText={t('content.noPosts')}
-    renderItem={(id) => <Post postId={id} key={id} visibility={visibility}/>}
+    emptyText={"No Questions"}
+    // emptyText={t('content.noPosts')}
+    renderItem={(id) => <Post postId={id} key={id} visibility={visibility} />}
   />;
 };
 
@@ -60,18 +64,18 @@ const SpacePage: FC<SpacePageProps> = (props) => {
   const visibility: Visibility | undefined = !isMySpace ? 'onlyVisible' : undefined;
 
   return !isMySpace && isHiddenSpace
-    ? <ErrorPage statusCode={404}/>
+    ? <ErrorPage statusCode={404} />
     : (
       <Layout>
         <SpaceAccount {...spaceData} />
-        <PostList postIds={postIds} posts={posts} visibility={visibility}/>
+        <PostList postIds={postIds} posts={posts} visibility={visibility} />
       </Layout>
     );
 };
 
 getInitialPropsWithRedux(SpacePage, async (props) => {
-  const {context, subsocial, dispatch, reduxStore} = props;
-  const {query} = context;
+  const { context, subsocial, dispatch, reduxStore } = props;
+  const { query } = context;
 
   const spaceData = await loadSpaceOnNextReq(props);
 
@@ -84,8 +88,8 @@ getInitialPropsWithRedux(SpacePage, async (props) => {
   const postIds = (await subsocial.subsocial.substrate.postIdsBySpaceId(spaceId)).reverse();
 
   const pageIds = bnsToIds(getPageOfIds(postIds, query));
-  await dispatch(fetchPosts({api: subsocial, ids: pageIds, reload: true}));
-  const posts = selectPosts(reduxStore.getState(), {ids: pageIds});
+  await dispatch(fetchPosts({ api: subsocial, ids: pageIds, reload: true }));
+  const posts = selectPosts(reduxStore.getState(), { ids: pageIds });
 
   return {
     spaceData,

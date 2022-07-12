@@ -41,7 +41,8 @@ const SpaceEditPage = () => {
     <Layout>
       <CardEdit
         spaceData={spaceData}
-        title={t('forms.titles.editSpace')}
+        title={"Edit Topic"}
+        // title={t('forms.titles.editSpace')}
         cancelButton={t('buttons.cancel')}
         saveButton={t('buttons.save')}
         onCancel={onCancel}

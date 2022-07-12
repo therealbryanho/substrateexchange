@@ -211,7 +211,8 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
         />
         <CardContent>
           <Title type={TitleSizes.DETAILS}>
-            {postId ? t('forms.titles.editPost') : t('forms.titles.newPost')}
+            {/* {postId ? t('forms.titles.editPost') : t('forms.titles.newPost')} */}
+            {postId ? "Edit Question" : "New Question"}
           </Title>
 
           {!isSharedPost && false && (
@@ -250,7 +251,8 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
               <div>
                 {/* <div>{t('forms.placeholder.postTitle')}</div> */}
                 <Input
-                  label={t('forms.placeholder.postTitle')}
+                  label={"Question Title"}
+                  // label={t('forms.placeholder.postTitle')}
                   value={title}
                   onChange={handleTitle}
                   placeholder='Be specific and imagine you’re asking a question to another person'
@@ -277,10 +279,12 @@ export const EditorPost: FC<EditorPostProps> = (props) => {
 
             <CardActions className={styles.buttons}>
               <ButtonCancel className={styles.buttonCancel} onClick={reset}>
-                {t('buttons.resetForm')}
+                {/* {t('buttons.resetForm')} */}
+                {"Reset"}
               </ButtonCancel>
               <TxButton
-                label={postId ? t('buttons.update') : t('buttons.createPost')}
+                label={postId ? "Update Question" : "Create Question"}
+                // label={postId ? t('buttons.update') : t('buttons.createPost')}
                 accountId={address}
                 className={styles.buttonEdit}
                 tx={postId ? 'posts.updatePost' : 'posts.createPost'}
