@@ -26,14 +26,12 @@ const FollowersBlock: FC<FollowersBlockProps> = ({
       </Modal>
       <button className={styles.button}>
         <span className={styles.bold}>{transformCount(posts)}</span>{' '}
-        {t('plural.post', { count: posts || 0 })}
         {posts > 1?`${posts} Questions`:`${posts} Question`}
         {/* {t('plural.post', { count: posts || 0 })} */}
       </button>
       <button onClick={toggleModal} className={styles.button}>
         <span className={styles.bold}>{transformCount(followers)}</span>{' '}
-        {followers > 1?`${followers} Followers`:`${followers} Follower`}
-        {/* {t('plural.follower', { count: followers || 0 })} */}
+        {t('plural.follower', { count: followers || 0 })}
       </button>
     </div>
   );
